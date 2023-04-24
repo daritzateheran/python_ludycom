@@ -1,3 +1,14 @@
+## Python Ludycom
+A simple backend example with python.
+
+##### Installation
+
+```
+git clone https://github.com/daritzateheran/express_ludycom.git
+```
+
+
+
 PRUEBA TÉCNICA BACKEND PYTHON
 
 
