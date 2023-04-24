@@ -10,29 +10,28 @@ git clone https://github.com/daritzateheran/express_ludycom.git
 ```
 CREATE SCHEMA `python_ludycom` ;
 
-CREATE TABLE `python_ludycom`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(50) NULL,
-  `email` VARCHAR(100) NOT NULL,
-  `password` VARCHAR(500) NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
-CREATE TABLE `python_ludycom`.`transactions` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `idUser` INT NULL,
-  `lat` FLOAT NULL,
-  `lon` FLOAT NULL,
-  `date` DATETIME NULL,
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idUser` int(11) DEFAULT NULL,
+  `lat` float DEFAULT NULL,
+  `lon` float DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `idtransactions_UNIQUE` (`id` ASC),
-  INDEX `id_idx` (`idUser` ASC),
-  CONSTRAINT `id`
-    FOREIGN KEY (`idUser`)
-    REFERENCES `python_ludycom`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  UNIQUE KEY `idtransactions_UNIQUE` (`id`),
+  KEY `id_idx` (`idUser`),
+  CONSTRAINT `id` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ```
 
