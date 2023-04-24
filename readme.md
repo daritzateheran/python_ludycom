@@ -6,8 +6,20 @@ A simple backend example with python.
 ```
 git clone https://github.com/daritzateheran/express_ludycom.git
 ```
+##### DB SCRIPTS
+```
+CREATE SCHEMA `python_ludycom` ;
 
+CREATE TABLE `python_ludycom`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(500) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
+```
 
 PRUEBA TÉCNICA BACKEND PYTHON
 
