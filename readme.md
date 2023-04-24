@@ -19,6 +19,21 @@ CREATE TABLE `python_ludycom`.`users` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
+CREATE TABLE `python_ludycom`.`transactions` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idUser` INT NULL,
+  `lat` FLOAT NULL,
+  `lon` FLOAT NULL,
+  `date` DATETIME NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `idtransactions_UNIQUE` (`id` ASC),
+  INDEX `id_idx` (`idUser` ASC),
+  CONSTRAINT `id`
+    FOREIGN KEY (`idUser`)
+    REFERENCES `python_ludycom`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
 ```
 
 PRUEBA TÉCNICA BACKEND PYTHON
@@ -46,3 +61,5 @@ funcionalidad misma.
 
 ¡Crea un repositorio público en Github, sube todos los cambios
 mencionados compártenos el enlace.
+
+Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJleHBpcmVzIjoxNjgyMzczOTg0LjY4NjAyMzd9.MoxBeFpckSrMOV2f0UuHcl7LvMwqcKA9dkxSwHY2nmg

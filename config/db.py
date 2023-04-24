@@ -1,7 +1,13 @@
-from sqlalchemy import create_engine, MetaData
+import pymysql
+from dotenv import load_dotenv
+import os
 
-engine = create_engine("mysql+pymysql://root:root@localhost:3306/python_ludycom")
+load_dotenv()
 
-meta = MetaData()
-
-conn = engine.connect()
+conn = pymysql.connect(
+    host=os.getenv('DB_HOST'),
+    user=os.getenv('DB_USER'),
+    password=os.getenv('DB_PASSWORD'),
+    db=os.getenv('DB_NAME'),
+    cursorclass=pymysql.cursors.DictCursor
+)
