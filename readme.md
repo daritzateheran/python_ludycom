@@ -18,11 +18,11 @@ docker exec -it ludycomdb bash
 mysql -u root -proot
 use python_ludycom
 ```
-
 ##### SQL
 ```
 CREATE SCHEMA `python_ludycom` ;
-
+```
+```
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
@@ -32,8 +32,8 @@ CREATE TABLE `users` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
-
-
+```
+```
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idUser` int(11) DEFAULT NULL,
@@ -46,7 +46,6 @@ CREATE TABLE `transactions` (
   KEY `id_idx` (`idUser`),
   CONSTRAINT `id` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 ```
 
 
