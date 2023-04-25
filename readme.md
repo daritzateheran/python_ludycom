@@ -4,9 +4,22 @@ A simple backend example with python.
 ##### Installation
 
 ```
-git clone https://github.com/daritzateheran/express_ludycom.git
+git clone https://github.com/daritzateheran/python_ludycom.git
+cd python_ludycom
+python -m venv venv
 ```
-##### DB SCRIPTS
+Install the require packages inside the virtual enviroment.
+
+##### Optional: Docker
+
+```
+docker-compose up
+docker exec -it ludycomdb bash
+mysql -u root -proot
+use python_ludycom
+```
+
+##### SQL
 ```
 CREATE SCHEMA `python_ludycom` ;
 
