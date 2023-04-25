@@ -1,7 +1,7 @@
 ## Python Ludycom
 A simple backend example with python.
 
-##### Installation
+#### Installation
 
 ```
 git clone https://github.com/daritzateheran/python_ludycom.git
@@ -10,7 +10,7 @@ python -m venv venv
 ```
 Install the require packages inside the virtual enviroment.
 
-##### Optional: Docker
+#### Optional: Docker
 
 ```
 docker-compose up
@@ -18,7 +18,7 @@ docker exec -it ludycomdb bash
 mysql -u root -proot
 use python_ludycom
 ```
-##### SQL
+#### SQL
 ```
 CREATE SCHEMA `python_ludycom` ;
 ```
@@ -48,11 +48,11 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
 
-##### Usage
+#### Usage
 
-POST /users
+**POST /users**
 Create a user in the database.
-###### Body
+##### Body
 ```
 {
   "id": 0,
@@ -62,7 +62,7 @@ Create a user in the database.
 }
 
 ```
-###### Response
+##### Response
 ```
 {
   "msg": "User created",
@@ -70,10 +70,10 @@ Create a user in the database.
 }
 ```
 
-GET /login
+**GET /login**
 Log in and return an access token.
 
-###### Body
+##### Body
 ```
 {
   "email": "ludycom@example.com",
@@ -81,14 +81,13 @@ Log in and return an access token.
 }
 
 ```
-###### Response
+##### Response
 ```
 {
   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1ZHljb21AZXhhbXBsZS5jb20iLCJleHBpcmVzIjoxNjgyMzk3OTI0LjY3NDQ5Njd9.4lgc10r86LiTjAqOO7yBhcQ72nZCCEFoVrDV5fNpVY4"
 }
 ```
-
-GET /getRestaurants/{city}
+**GET /getRestaurants/{city}**
 Returns a list of restaurants near a location according to the city. This endpoint is protected and it's necessary to add the Authorization header.
 
 ###### Header
@@ -96,7 +95,7 @@ Returns a list of restaurants near a location according to the city. This endpoi
 Authorization:
 Bearer {access_token}
 ```
-```
+
 ###### Response
 ```
 {
@@ -125,7 +124,7 @@ Bearer {access_token}
   "email": "ludycom@example.com"
 }
 ```
-GET /historic
+**GET /historic**
 Returns a list of all the historical transactions made.
 ###### Header
 ```
