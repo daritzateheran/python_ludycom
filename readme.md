@@ -48,7 +48,12 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
 
+##### Usage
 
+POST /users
+Create a user in the database.
+###### Body
+```
 {
   "id": 0,
   "name": "xaiena",
@@ -56,34 +61,147 @@ CREATE TABLE `transactions` (
   "password": "12345678"
 }
 
+```
+###### Response
+```
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhhaWVuYUBleGFtcGxlLmNvbSIsImV4cGlyZXMiOjE2ODIzODY5NTQuNjE2ODIxNX0.wm36wWNCz5c6P_JD0WrDqlccL4rpC2lq9q_tBXr2TD0"
+  "msg": "User created",
+  "name": "ludycom@example.com"
+}
+```
+
+GET /login
+Log in and return an access token.
+
+###### Body
+```
+{
+  "email": "ludycom@example.com",
+  "password": "12345678"
 }
 
-PRUEBA TÉCNICA BACKEND PYTHON
+```
+###### Response
+```
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1ZHljb21AZXhhbXBsZS5jb20iLCJleHBpcmVzIjoxNjgyMzk3OTI0LjY3NDQ5Njd9.4lgc10r86LiTjAqOO7yBhcQ72nZCCEFoVrDV5fNpVY4"
+}
+```
 
+GET /getRestaurants/{city}
+Returns a list of restaurants near a location according to the city. This endpoint is protected and it's necessary to add the Authorization header.
 
-Deberás de desarrollar un API REST con las siguientes
-funcionalidades:
-
-
-a. Registro de usuario.
-b. Login de usuario.
-c. Crear un endpoint para los usuarios logueados el cual reciba
-una ciudad (o unas coordenadas) y retorne una lista de los
-restaurantes cercanos a esta ciudad o coordenadas. Puedes
-utilizar algún API público para esto.
-d. Crear un endpoint donde puedes consultar la lista de las
-transacciones realizadas históricamente.
-e. Logout de usuario.
-
-
-Lo más importante de este ejercicio es que lo que desarrolles (aparte de
-funcionar) este muy bien implementado, que se vea la buena ingeniería
-detrás del entregable. Esto es un porcentaje aún mayor que la
-funcionalidad misma.
-
-¡Crea un repositorio público en Github, sube todos los cambios
-mencionados compártenos el enlace.
-
-Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhhaWVuYUBleGFtcGxlLmNvbSIsImV4cGlyZXMiOjE2ODIzODY5NTQuNjE2ODIxNX0.wm36wWNCz5c6P_JD0WrDqlccL4rpC2lq9q_tBXr2TD0
+###### Header
+```
+Authorization:
+Bearer {access_token}
+```
+```
+###### Response
+```
+{
+  "Near restaurants": [
+    "",
+    "Local food restaurant",
+    "Local food restaurant",
+    "La Cacerola",
+    "Caseros a su Gusto - C.C. Gran Plaza",
+    "Restaurant Bolivar",
+    "Los Asados",
+    "Toppings bar",
+    "Aquí Paró Lucho",
+    "Pizzeria bar",
+    "Mi Pueblo",
+    "Aspasia",
+    "",
+    "Govindas",
+    "Cafetería Boyaca",
+    "",
+    "Saludable",
+    "Restaurante catena",
+    "Hotsun Arroz Express",
+    "Restaurante Palma Seca"
+  ],
+  "email": "ludycom@example.com"
+}
+```
+GET /historic
+Returns a list of all the historical transactions made.
+###### Header
+```
+Authorization:
+Bearer {access_token}
+```
+```
+###### Response
+```
+{
+  "Transations": [
+    {
+      "id": 1,
+      "idUser": 31,
+      "lat": -74.7989,
+      "lon": -10.9811,
+      "city": "Barranquilla",
+      "date": "2023-04-24T22:18:57"
+    },
+    {
+      "id": 2,
+      "idUser": 31,
+      "lat": -74.7989,
+      "lon": -10.9811,
+      "city": "Barranquilla",
+      "date": "2023-04-24T22:19:48"
+    },
+    {
+      "id": 3,
+      "idUser": 31,
+      "lat": -74.0836,
+      "lon": -4.65346,
+      "city": "Bogotá",
+      "date": "2023-04-24T22:21:45"
+    },
+    {
+      "id": 4,
+      "idUser": 31,
+      "lat": -74.0836,
+      "lon": -4.65346,
+      "city": "Bogotá",
+      "date": "2023-04-24T22:35:40"
+    },
+    {
+      "id": 5,
+      "idUser": 31,
+      "lat": -74.0836,
+      "lon": -4.65346,
+      "city": "Bogotá",
+      "date": "2023-04-24T22:36:11"
+    },
+    {
+      "id": 6,
+      "idUser": 31,
+      "lat": -76.6527,
+      "lon": -6.21805,
+      "city": "Medellin",
+      "date": "2023-04-24T23:44:38"
+    },
+    {
+      "id": 7,
+      "idUser": 31,
+      "lat": -75.5736,
+      "lon": -6.24434,
+      "city": "Medellín",
+      "date": "2023-04-24T23:44:50"
+    },
+    {
+      "id": 8,
+      "idUser": 32,
+      "lat": -75.5736,
+      "lon": -6.24434,
+      "city": "Medellín",
+      "date": "2023-04-24T23:45:51"
+    }
+  ],
+  "email": "ludycom@example.com"
+}
+```

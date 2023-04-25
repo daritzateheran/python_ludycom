@@ -11,7 +11,3 @@ def createUser(user: User):
     user.password = hashPassword(user.password)
     insertUser(user)      
     return {"msg": "User created", "name": user.email}
-
-@users.post("/logout")
-def logout():
-    return {"Hello": "Users"}
