@@ -131,7 +131,7 @@ Returns a list of all the historical transactions made.
 Authorization:
 Bearer {access_token}
 ```
-```
+
 ###### Response
 ```
 {
