@@ -6,4 +6,12 @@ class Transaction(BaseModel):
     email: EmailStr
     lat: float
     lon: float    
+    city: str
+    date: str
+
+class TransactionDb(BaseModel):
+    id: Optional[int]
+    idUser: EmailStr
+    lat: float
+    lon: float    
     date: str

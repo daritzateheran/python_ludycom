@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    container_name: ludycomdb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: python_ludycom
+    ports:
+      - 3306:3306
+    volumes:
+      - C:\Users\xaiena\Documents\Daritza\backend\python\python_ludycom\ludycom_data:/var/lib/postgresql/data

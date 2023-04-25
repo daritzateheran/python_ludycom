@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from controllers.login import *
-from controllers.jwt import *
+from auth.jwt import signJWT
 from schemas.User import UserLogin
 
 
@@ -11,6 +11,6 @@ def loginUsers(user: UserLogin):
     if checkUser(user):
         return signJWT(user.email)
     return {
-        "error": "Wrong login details!"
+        "msg": "Wrong login details!"
     }
 

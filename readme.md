@@ -26,6 +26,7 @@ CREATE TABLE `transactions` (
   `idUser` int(11) DEFAULT NULL,
   `lat` float DEFAULT NULL,
   `lon` float DEFAULT NULL,
+  `city` varchar(100) NOT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idtransactions_UNIQUE` (`id`),
@@ -34,6 +35,18 @@ CREATE TABLE `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ```
+
+
+{
+  "id": 0,
+  "name": "xaiena",
+  "email": "xaiena@example.com",
+  "password": "12345678"
+}
+
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhhaWVuYUBleGFtcGxlLmNvbSIsImV4cGlyZXMiOjE2ODIzODY5NTQuNjE2ODIxNX0.wm36wWNCz5c6P_JD0WrDqlccL4rpC2lq9q_tBXr2TD0"
+}
 
 PRUEBA TÉCNICA BACKEND PYTHON
 
@@ -61,4 +74,4 @@ funcionalidad misma.
 ¡Crea un repositorio público en Github, sube todos los cambios
 mencionados compártenos el enlace.
 
-Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJleHBpcmVzIjoxNjgyMzczOTg0LjY4NjAyMzd9.MoxBeFpckSrMOV2f0UuHcl7LvMwqcKA9dkxSwHY2nmg
+Authorization Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InhhaWVuYUBleGFtcGxlLmNvbSIsImV4cGlyZXMiOjE2ODIzODY5NTQuNjE2ODIxNX0.wm36wWNCz5c6P_JD0WrDqlccL4rpC2lq9q_tBXr2TD0
